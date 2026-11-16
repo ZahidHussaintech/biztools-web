@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizTools Studio | Free Digital Marketing, SEO, WordPress & AI Tools</title>
+    <meta
+      name="description"
+      content="Tested free digital marketing, SEO, Canva, and WordPress tools plus actionable growth guides for lean businesses in the UK, US, Europe, Australia & New Zealand."
+    />
+    <meta
+      name="keywords"
+      content="free SEO tools, Canva alternatives, WordPress speed optimization, UTM builder, meta tag generator, digital marketing tools, SaaS stack"
+    />
+    <link rel="canonical" href="https://biztools.zahidhussainofficial.com/" />
+    <meta property="og:title" content="BizTools Studio — Free Marketing, SEO & AI Tools" />
+    <meta
+      property="og:description"
+      content="Free browser-based SEO utilities, UTM builders, and honest comparisons of free alternatives to expensive marketing SaaS."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://biztools.zahidhussainofficial.com/" />
+    <style>
+      body > *:not(#root):not(script):not(style) {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-[#090D16] text-slate-100 antialiased selection:bg-emerald-500 selection:text-slate-950">
+    <div id="root"></div>
+    <script>
+      const purgeBadge = () => {
+        Array.from(document.body.children).forEach((el) => {
+          if (el.id !== 'root' && el.tagName !== 'SCRIPT' && el.tagName !== 'STYLE') {
+            el.remove();
+          }
+        });
+      };
+      purgeBadge();
+      setInterval(purgeBadge, 300);
+      new MutationObserver(purgeBadge).observe(document.body, { childList: true });
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
