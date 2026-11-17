@@ -99,4 +99,104 @@ export const ARTICLES = [
       },
     ],
   },
+  {
+    id: 'free-ai-cold-email-outreach-tools',
+    category: 'AI & SaaS Stacks',
+    readTime: '7 min read',
+    date: 'Nov 15, 2026',
+    title: 'Free Cold Email & B2B Lead Research Stack That Actually Lands in the Primary Inbox',
+    excerpt:
+      'Sending 500 generic AI emails a day burns your domain reputation in a week. Here is the free, low-volume stack for targeted UK and US B2B outreach.',
+    verdict: 'Use Apollo.io Free tier for verified work emails, Mail-Tester for SPF/DKIM checks, and plain-text 4-sentence emails instead of bloated HTML templates.',
+    table: [
+      { tool: 'Apollo.io (Free Plan)', replaces: 'ZoomInfo / Lusha', freeLimit: 'Verified email credits/mo', bestFor: 'Finding decision-maker emails by industry & country' },
+      { tool: 'Mail-Tester.com', replaces: 'GlockApps ($79/mo)', freeLimit: '3 free spam checks/day', bestFor: 'Catching broken SPF, DKIM, and DMARC records' },
+      { tool: 'Hunter.io Free', replaces: 'Paid Domain Finders', freeLimit: '25 searches + 50 verifications/mo', bestFor: 'Double-checking bounce risk before sending' },
+    ],
+    sections: [
+      {
+        heading: '1. Why Most Outbound Campaigns Fail Before the First Reply',
+        body: 'When agencies or solo founders buy a $99/month auto-sender and blast 1,000 prospects from a fresh domain, Google Workspace and Microsoft 365 route those messages straight to Spam. Sending 20 researched emails a day from a properly authenticated domain consistently beats 500 automated blasts.',
+      },
+      {
+        heading: '2. The 3-Step Deliverability Check Before You Hit Send',
+        body: 'Verify your SPF, DKIM, and DMARC records in Cloudflare DNS, strip out tracking pixels and heavy HTML signatures, and reference one specific detail from the prospect’s website—such as a slow mobile PageSpeed score or missing schema markup.',
+      },
+    ],
+  },
+  {
+    id: 'free-ga4-heatmap-analytics-alternatives',
+    category: 'SEO & GSC',
+    readTime: '6 min read',
+    date: 'Nov 15, 2026',
+    title: 'Microsoft Clarity vs Hotjar: How to Get Free Session Recordings Without Slowing Your Site',
+    excerpt:
+      'Paying $39/month for basic heatmaps makes little sense when Microsoft Clarity gives unlimited session replays for free—if you load it properly.',
+    verdict: 'Install Microsoft Clarity alongside Google Analytics 4, and defer its script until user interaction so it costs zero points on mobile Core Web Vitals.',
+    table: [
+      { tool: 'Microsoft Clarity', replaces: 'Hotjar Plus ($39/mo)', freeLimit: '100% Free unlimited heatmaps', bestFor: 'Watching where UK/US visitors rage-click or drop off' },
+      { tool: 'Google Search Console', replaces: 'Paid SERP Trackers', freeLimit: '16 months historical data', bestFor: 'Finding high-impression, low-CTR pages to rewrite' },
+      { tool: 'Bing Webmaster Tools', replaces: 'Paid Backlink & Crawl Audits', freeLimit: 'Free SEO reports + IndexNow', bestFor: 'Instant indexing across Bing, Yahoo & DuckDuckGo' },
+    ],
+    sections: [
+      {
+        heading: '1. What Heatmaps Reveal That Analytics Numbers Hide',
+        body: 'GA4 tells you a visitor left after 18 seconds; Clarity recordings show you they tried tapping an unclickable heading on mobile or got frustrated by a broken form label. Fixing those two friction points often lifts lead conversions faster than doubling traffic.',
+      },
+      {
+        heading: '2. Keeping Your Lighthouse Score at 95+ With Tracking Scripts',
+        body: 'Never paste raw third-party tracking snippets directly into your <head> without async or delayed loading. Trigger analytics after first scroll or 2 seconds idle so First Contentful Paint stays under 1.2 seconds.',
+      },
+    ],
+  },
+  {
+    id: 'free-crm-project-tools-small-agencies',
+    category: 'AI & SaaS Stacks',
+    readTime: '7 min read',
+    date: 'Nov 16, 2026',
+    title: 'Best Free CRM & Client Portal Tools for Freelancers and 2–10 Person Agencies',
+    excerpt:
+      'You do not need HubSpot Enterprise or Monday.com paid seats to track 30 active leads and client deliverables. Here are the free tiers that actually hold up.',
+    verdict: 'Run HubSpot Free CRM for deal pipelines and Notion or Trello Free for client task boards—upgrading only when you cross $10k/month in recurring retainers.',
+    table: [
+      { tool: 'HubSpot CRM (Free)', replaces: 'Pipedrive ($14–$49/user)', freeLimit: 'Unlimited contacts & deal stages', bestFor: 'Tracking follow-ups, email opens & proposal stages' },
+      { tool: 'Notion Free Tier', replaces: 'Paid Client Portals', freeLimit: 'Unlimited pages & guest shares', bestFor: 'Sharing live SEO roadmaps & onboarding checklists' },
+      { tool: 'Cal.com Free', replaces: 'Calendly Standard ($12/mo)', freeLimit: 'Unlimited 1-on-1 bookings', bestFor: 'UK/US timezone-synced discovery calls' },
+    ],
+    sections: [
+      {
+        heading: '1. The Hidden Cost of Tool Sprawl in Small Service Teams',
+        body: 'Subscribing to five separate $15/month tools quietly drains $900 a year before you even count payment gateway fees. Worse, client notes end up scattered across WhatsApp, Gmail, and spreadsheets.',
+      },
+      {
+        heading: '2. A Simple Two-Tool Operating System',
+        body: 'Keep every prospect in one 5-column pipeline (New Lead, Audit Sent, Call Booked, Proposal Out, Won) and give every paying client a single shared Notion page containing their deliverables, Loom walkthroughs, and monthly metrics.',
+      },
+    ],
+  },
+  {
+    id: 'free-woocommerce-shopify-speed-checklist',
+    category: 'WordPress & Speed',
+    readTime: '8 min read',
+    date: 'Nov 17, 2026',
+    title: 'Why E-Commerce Product Pages Fail Mobile Speed Tests (And the Free Fix Checklist)',
+    excerpt:
+      'Slow product galleries kill mobile checkout conversions in the UK and Australia. Fix the four biggest culprits without buying expensive speed apps.',
+    verdict: 'Convert product photos to WebP under 120 KB, disable cart-fragment AJAX on non-cart pages, and lazy-load below-the-fold review widgets.',
+    table: [
+      { tool: 'Squoosh.app', replaces: 'Paid Bulk Image Compressors', freeLimit: '100% Free browser WebP/AVIF', bestFor: 'Compressing hero & product shots with zero quality loss' },
+      { tool: 'Disable Cart Fragments', replaces: 'Bloated Speed Suites', freeLimit: 'Free plugin / 6-line snippet', bestFor: 'Stopping WooCommerce wc-ajax=get_refreshed_fragments lag' },
+      { tool: 'PageSpeed Insights + Lighthouse', replaces: 'GTmetrix Pro', freeLimit: 'Unlimited mobile/desktop audits', bestFor: 'Testing real Core Web Vitals & accessibility labels' },
+    ],
+    sections: [
+      {
+        heading: '1. The WooCommerce Cart Fragments Bottleneck',
+        body: 'Out of the box, WooCommerce fires an uncacheable AJAX request on every single page load just to update the mini-cart counter—adding 600ms to 1.2s of delay on mobile networks. Disabling it on blog and landing pages speeds up browsing immediately.',
+      },
+      {
+        heading: '2. Accessibility & Contrast Are Now Conversion Factors',
+        body: 'Tiny 12px grey text on dark backgrounds and unlabeled form fields do not just hurt Lighthouse accessibility scores—they frustrate mobile shoppers on bright outdoor screens. Keep interactive buttons at least 44px tall with clear labels.',
+      },
+    ],
+  },
 ];
