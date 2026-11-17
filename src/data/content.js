@@ -247,8 +247,6 @@ export const ARTICLES = [
       },
     ],
   },
-
-    ,
   {
     id: 'free-ai-cold-email-outreach-tools',
     category: 'AI & SaaS Stacks',
