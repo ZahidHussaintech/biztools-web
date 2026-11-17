@@ -322,7 +322,6 @@ function BlogPage() {
     </div>
   );
 }
-
 function ArticleDetailPage() {
   const { slug } = useParams();
   const article = ARTICLES.find((a) => a.id === slug);
@@ -339,34 +338,37 @@ function ArticleDetailPage() {
   }
 
   return (
-    <article className="max-w-4xl mx-auto w-full px-4 sm:px-6 py-14 space-y-6">
+    <article className="max-w-4xl mx-auto w-full px-4 sm:px-6 py-14 space-y-8">
       <Link to="/blog" className="min-h-[44px] inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:underline">
         <ArrowLeft className="w-4 h-4" /> Back to All Guides
       </Link>
 
-      <div className="space-y-3">
-        <span className="px-3 py-1 rounded-md bg-slate-800 text-emerald-300 text-xs font-semibold">
+      <header className="space-y-3 border-b border-slate-800 pb-6">
+        <span className="inline-block px-3 py-1 rounded-md bg-slate-800 text-emerald-300 text-xs font-semibold">
           {article.category}
         </span>
         <h1 className="text-2xl sm:text-4xl font-extrabold text-white leading-tight">{article.title}</h1>
-        <p className="text-xs sm:text-sm text-slate-400">
-          Published {article.date} • {article.readTime} • Written & Tested by Zahid Hussain
+        <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{article.excerpt}</p>
+        <p className="text-xs text-slate-400 pt-1">
+          Published {article.date} • {article.readTime} • Field-Tested by Zahid Hussain
         </p>
+      </header>
+
+      {/* Bottom-Line Verdict */}
+      <div className="bg-slate-900 border border-emerald-500/40 rounded-2xl p-5 sm:p-6">
+        <p className="text-xs font-bold uppercase tracking-wider text-emerald-300 mb-1.5">Bottom-Line Verdict</p>
+        <p className="text-sm sm:text-base text-slate-200 leading-relaxed">{article.verdict}</p>
       </div>
 
-      <div className="bg-slate-900 border border-emerald-500/40 rounded-2xl p-5">
-        <p className="text-xs font-bold uppercase text-emerald-300 mb-1">Bottom-Line Verdict</p>
-        <p className="text-sm sm:text-base text-slate-200">{article.verdict}</p>
-      </div>
-
+      {/* Comparison Table */}
       <div className="bg-[#111827] border border-slate-800 rounded-2xl p-5 overflow-x-auto">
         <table className="w-full text-left border-collapse text-xs sm:text-sm">
           <thead>
             <tr className="border-b border-slate-700 text-slate-200">
-              <th className="py-2.5 pr-4">Free Tool</th>
-              <th className="py-2.5 pr-4">Replaces</th>
-              <th className="py-2.5 pr-4">Free Tier Quota</th>
-              <th className="py-2.5">Where It Shines</th>
+              <th scope="col" className="py-3 pr-4">Free Tool</th>
+              <th scope="col" className="py-3 pr-4">Replaces</th>
+              <th scope="col" className="py-3 pr-4">Free Tier Quota</th>
+              <th scope="col" className="py-3">Best Use Case</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800 text-slate-300">
@@ -382,22 +384,75 @@ function ArticleDetailPage() {
         </table>
       </div>
 
-      <div className="space-y-6 pt-2">
+      {/* Deep-Dive Sections */}
+      <div className="space-y-8 pt-2">
         {article.sections.map((sec, idx) => (
-          <section key={idx} className="space-y-2">
-            <h2 className="text-xl font-bold text-white">{sec.heading}</h2>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{sec.body}</p>
+          <section key={idx} className="space-y-3.5">
+            <h2 className="text-xl sm:text-2xl font-bold text-white leading-snug">{sec.heading}</h2>
+
+            {sec.paragraphs ? (
+              sec.paragraphs.map((para, pIdx) => (
+                <p key={pIdx} className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  {para}
+                </p>
+              ))
+            ) : (
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{sec.body}</p>
+            )}
+
+            {sec.bullets && sec.bullets.length > 0 && (
+              <ul className="space-y-2.5 pt-1 pl-1">
+                {sec.bullets.map((item, bIdx) => (
+                  <li key={bIdx} className="flex items-start gap-2.5 text-sm sm:text-base text-slate-300">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-1" aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {sec.code && (
+              <pre className="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs text-emerald-300 overflow-x-auto leading-relaxed">
+                <code>{sec.code}</code>
+              </pre>
+            )}
           </section>
         ))}
       </div>
 
+      {/* Honest Free-Tier Trade-offs */}
+      {article.tradeoffs && (
+        <section className="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-5 sm:p-6 space-y-2.5">
+          <h2 className="text-base sm:text-lg font-bold text-amber-300">Where These Free Tools Hit Their Limits</h2>
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">{article.tradeoffs}</p>
+        </section>
+      )}
+
+      {/* People Also Ask (FAQ Section for Rich Search Snippets) */}
+      {article.faqs && article.faqs.length > 0 && (
+        <section className="space-y-4 pt-4 border-t border-slate-800">
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {article.faqs.map((faq, fIdx) => (
+              <div key={fIdx} className="bg-[#111827] border border-slate-800 rounded-xl p-5 space-y-2">
+                <h3 className="text-base font-bold text-white">{faq.q}</h3>
+                <p className="text-sm text-slate-300 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Practitioner CTA */}
       <div className="mt-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h2 className="font-bold text-white text-base">Need Hands-On Help With Your Site or Custom Tool?</h2>
-          <p className="text-xs text-slate-300 mt-1">Available for WordPress Core Web Vitals fixes, technical SEO audits, and React SaaS MVPs.</p>
+          <p className="text-xs sm:text-sm text-slate-300 mt-1">
+            Available for WordPress Core Web Vitals fixes, Google Search Console recovery, and React SaaS MVPs.
+          </p>
         </div>
         <a
-          href="https://zahidhussainofficial.com"
+          href="https://zahidhussainofficial.com/services"
           target="_blank"
           rel="noreferrer"
           className="min-h-[44px] shrink-0 inline-flex items-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs px-5 py-3 rounded-xl"
